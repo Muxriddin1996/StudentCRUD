@@ -1,31 +1,36 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Study_Crud.Models.Entity;
+using Study_Crud.Models.Interface;
 
 namespace Study_Crud.Controllers
 {
     public class StudentController : Controller
     {
         private readonly DataDbContext _db;
-        public StudentController(DataDbContext db)
+        private readonly IStudentService _studentService;
+
+        public StudentController(DataDbContext db,
+            IStudentService studentService)
         {
             _db = db;
+            _studentService = studentService;
         }
         public IActionResult Index()
         {
-            var lists = _db.Students.ToList();
+            var lists = _studentService.GetStudent();
             return View(lists);
            
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<ActionResult> Index(string StudentSearch)
         {
             ViewData["GetClientDetails"] = StudentSearch;
             var Studentquery = from x in _db.Students select x;
             if (!String.IsNullOrEmpty(StudentSearch))
             {
-                Studentquery = Studentquery.Where(x => x.FirstName.Contains(StudentSearch) || x.LastName.Contains(StudentSearch));
+                Studentquery = _db.Students.Where(x => x.FirstName.Contains(StudentSearch) || x.LastName.Contains(StudentSearch));
             }
             return View(await Studentquery.AsNoTracking().ToListAsync());
         }

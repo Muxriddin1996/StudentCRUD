@@ -2,7 +2,8 @@ using Study_Crud.Models;
 using Microsoft.EntityFrameworkCore;
 using Study_Crud.Models.Entity;
 using System.Reflection;
-
+using Study_Crud.Models.Interface;
+using Study_Crud.Models.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<DataDbContext>(options =>
    options.UseSqlServer(connections));
 
  builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IStudentService, StudentService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

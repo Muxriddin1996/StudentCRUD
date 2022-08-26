@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Study_Crud.Models.Entity.Student>
+﻿@model IEnumerable<Study_Crud.Models.ViewModel.StudentViewModel>
 @{
     ViewData["Title"] = "Index";
 }
@@ -13,7 +13,7 @@
 </form>
 
 
-<a href="AddStudent">
+<a href="Student/AddStudent">
         <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
             Create New Student
         </button>
@@ -38,7 +38,7 @@
                 @Html.DisplayNameFor(model => model.Cource)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SubjectModel.Name)
+                @Html.DisplayNameFor(model => model.SubjectName)
             </th>
             
             <th></th>
@@ -52,19 +52,19 @@
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                  @Html.DisplayNameFor(modelItem => item.LastName)
+                  @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                  @Html.DisplayNameFor(modelItem => item.BirthDay)
+                  @Html.DisplayFor(modelItem => item.BirthDay)
             </td>
             <td>
-                @Html.DisplayNameFor(modelItem => item.Direction)
+                @Html.DisplayFor(modelItem => item.Direction)
             </td>
             <td>
-                @Html.DisplayNameFor(modelItem => item.Cource)
+                @Html.DisplayFor(modelItem => item.Cource)
             </td>
             <td>
-                 @Html.DisplayNameFor(modelItem => item.SubjectId)
+                 @Html.DisplayFor(modelItem => item.SubjectName)
             </td>
             <td>
                 <a asp-action="AddStudent" asp-route-id="@item.Id">Edit</a> |             
