@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Study_Crud.Models.Entity.Student>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Students</h1>
+
+<form method="get" asp-action="Index">
+    <p>
+         <input type="search" placeholder="Enter Student FirstName or LastName...." value="@ViewData["GetClientDetails"]" name="StudentSearch" style="width:500px;" />
+         <input type="submit" value="Search" class="btn btn-primary"       
+    </p>
+          <a asp-action="Index"> Get all Client</a>
+</form>
+
+
+<a href="AddStudent">
+        <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+            Create New Student
+        </button>
+    </a>  
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectModel.Name)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                  @Html.DisplayNameFor(modelItem => item.LastName)
+            </td>
+            <td>
+                  @Html.DisplayNameFor(modelItem => item.BirthDay)
+            </td>
+            <td>
+                @Html.DisplayNameFor(modelItem => item.Direction)
+            </td>
+            <td>
+                @Html.DisplayNameFor(modelItem => item.Cource)
+            </td>
+            <td>
+                 @Html.DisplayNameFor(modelItem => item.SubjectId)
+            </td>
+            <td>
+                <a asp-action="AddStudent" asp-route-id="@item.Id">Edit</a> |             
+                  <a href="#">
+                                <button type="button"
+                                class="btn btn-danger"
+                                data-mdb-ripple-color="dark">
+                                    @Html.ActionLink("Delete","DeleteStudent",
+                            new { Id = item.Id},
+                            new { onclick = "return confirm('Are sure wants to Delete?');" })
+                                </button>
+
+                            </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

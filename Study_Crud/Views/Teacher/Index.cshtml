@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Study_Crud.Models.Entity.Teacher>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Teachers</h1>
+
+<a href="AddTeacher">
+        <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+            Create New Teacher
+        </button>
+    </a>  
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectId)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                  @Html.DisplayNameFor(model => item.LastName)
+            </td>
+            <td>
+                  @Html.DisplayNameFor(model => item.BirthDay)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => item.Position)
+            </td>
+            <td>
+                 @Html.DisplayNameFor(model => item.SubjectId)
+            </td>
+            <td>
+                <a asp-action="AddTeacher" asp-route-id="@item.Id">Edit</a> |             
+                  <a href="#">
+                                <button type="button"
+                                class="btn btn-danger"
+                                data-mdb-ripple-color="dark">
+                                    @Html.ActionLink("Delete","DeleteTeacher",
+                            new { Id = item.Id},
+                            new { onclick = "return confirm('Are sure wants to Detele?');" })
+                                </button>
+
+                            </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Study_Crud.Models.Entity.Subject>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Subject</h1>
+
+<a href="AddSubject">
+        <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+            Create New Subject
+        </button>
+    </a>  
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassId)
+            </th>       
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model)
+      {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                  @Html.DisplayNameFor(model => item.ClassId)
+            </td>                     
+            <td>
+                <a asp-action="AddSubject" asp-route-id="@item.Id">Edit</a> |             
+                  <a href="#">
+                                <button type="button"
+                                class="btn btn-danger"
+                                data-mdb-ripple-color="dark">
+                                    @Html.ActionLink("Delete","DeleteSubject",
+                            new { Id = item.Id},
+                            new { onclick = "return confirm('Are sure wants to Detele?');" })
+                                </button>
+
+                            </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

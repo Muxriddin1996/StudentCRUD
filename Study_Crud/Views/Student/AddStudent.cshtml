@@ -1,0 +1,46 @@
+﻿@model Study_Crud.Models.Entity.Student
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container col-md-8">
+    <div class="row mb-4"  style="padding-bottom:12px">
+        <h3>New Student</h3>
+    </div>
+    <form method="post" action="AddStudent">
+         @Html.HiddenFor(m=>m.Id)
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4" >
+            <div class="col">
+                <div class="form-outline">
+                    <input type="text" name="Name" value="@Model.FirstName" maxlength="15" class="form-control" placeholder="FirstName" required />
+                </div>
+                <div class="form-outline">
+                    <input type="text" name="Name" value="@Model.LastName" maxlength="15" class="form-control" placeholder="LastName" required />
+                </div>
+                <div class="form-outline">
+                    <input type="text" name="Name" value="@Model.BirthDay" maxlength="15" class="form-control" placeholder="BithDay" required />
+                </div>
+                <div class="form-outline">
+                    <input type="text" name="Name" value="@Model.Direction" maxlength="15" class="form-control" placeholder="Direction" required />
+                </div>
+                <div class="form-outline">
+                    <input type="text" name="Name" value="@Model.Cource" maxlength="15" class="form-control" placeholder="Cource" required />
+                </div>
+                <div class="form-outline">
+                    <input type="text" name="Name" value="@Model.SubjectId" maxlength="15" class="form-control" placeholder="Subject" required />
+                </div>
+            </div>
+            <div class="row mb-4" style="padding:12px">
+                @if (Model.Id == 0)
+                {
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Add Student</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Update Student</button>
+                }
+            </div>
+        </div>
+    </form>
+</div>

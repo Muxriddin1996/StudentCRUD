@@ -1,0 +1,34 @@
+﻿@model Study_Crud.Models.Entity.Subject
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container col-md-8">
+    <div class="row mb-4"  style="padding-bottom:12px">
+        <h3>New Subject</h3>
+    </div>
+    <form method="post" action="AddSubject">
+         @Html.HiddenFor(m=>m.Id)
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4" >
+            <div class="col">
+                <div class="form-outline">
+                    <input type="text" name="Name" value="@Model.Name" maxlength="15" class="form-control" placeholder="Name" required />
+                </div>
+                <div class="form-outline">
+                    <input type="text" name="Name" value="@Model.ClassId" maxlength="15" class="form-control" placeholder="Capasity" required />
+                </div>                               
+            </div>
+            <div class="row mb-4" style="padding:12px">
+                @if (Model.Id == 0)
+                {
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Add Subject</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Update Subject</button>
+                }
+            </div>
+        </div>
+    </form>
+</div>
