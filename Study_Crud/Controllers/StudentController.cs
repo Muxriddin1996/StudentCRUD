@@ -81,7 +81,7 @@ namespace Study_Crud.Controllers
                     };
                     _db.Students.Add(entity);
                     _db.SaveChanges();
-                }
+                } 
                 else
                 {
                     var entity = _db.Students.Find(model.Id);

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Samar\\Desktop\\Muxi\\Study_Crud\\Study_Crud\\Study_Crud\\Study_Crud.csproj": {}
+    "C:\\Users\\motki\\Desktop\\New folder\\Study_Crud\\Study_Crud.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Samar\\Desktop\\Muxi\\Study_Crud\\Study_Crud\\Study_Crud\\Study_Crud.csproj": {
+    "C:\\Users\\motki\\Desktop\\New folder\\Study_Crud\\Study_Crud.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Samar\\Desktop\\Muxi\\Study_Crud\\Study_Crud\\Study_Crud\\Study_Crud.csproj",
+        "projectUniqueName": "C:\\Users\\motki\\Desktop\\New folder\\Study_Crud\\Study_Crud.csproj",
         "projectName": "Study_Crud",
-        "projectPath": "C:\\Users\\Samar\\Desktop\\Muxi\\Study_Crud\\Study_Crud\\Study_Crud\\Study_Crud.csproj",
-        "packagesPath": "C:\\Users\\Samar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Samar\\Desktop\\Muxi\\Study_Crud\\Study_Crud\\Study_Crud\\obj\\",
+        "projectPath": "C:\\Users\\motki\\Desktop\\New folder\\Study_Crud\\Study_Crud.csproj",
+        "packagesPath": "C:\\Users\\motki\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\motki\\Desktop\\New folder\\Study_Crud\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Samar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\motki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

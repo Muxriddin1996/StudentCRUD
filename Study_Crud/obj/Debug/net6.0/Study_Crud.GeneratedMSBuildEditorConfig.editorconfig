@@ -8,69 +8,69 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Study_Crud
 build_property.RootNamespace = Study_Crud
-build_property.ProjectDir = C:\Users\Samar\Desktop\Muxi\Study_Crud\Study_Crud\Study_Crud\
+build_property.ProjectDir = C:\Users\motki\Desktop\New folder\Study_Crud\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Samar\Desktop\Muxi\Study_Crud\Study_Crud\Study_Crud
+build_property.MSBuildProjectDirectory = C:\Users\motki\Desktop\New folder\Study_Crud
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Classses/AddClasses.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Classses/AddClasses.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3NzZXNcQWRkQ2xhc3Nlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Classses/Index.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Classses/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3NzZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Home/Index.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Home/Privacy.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Shared/Error.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Student/AddStudent.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Student/AddStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxBZGRTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Student/Index.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Subject/AddSubject.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Subject/AddSubject.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdFxBZGRTdWJqZWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Subject/Index.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Subject/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Teacher/AddTeacher.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Teacher/AddTeacher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxBZGRUZWFjaGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Teacher/Index.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Teacher/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/_ViewImports.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/_ViewStart.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Samar/Desktop/Muxi/Study_Crud/Study_Crud/Study_Crud/Views/Shared/_Layout.cshtml]
+[C:/Users/motki/Desktop/New folder/Study_Crud/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-5wnimnzim7
