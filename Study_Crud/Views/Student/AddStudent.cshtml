@@ -7,28 +7,34 @@
     <div class="row mb-4"  style="padding-bottom:12px">
         <h3>New Student</h3>
     </div>
-    <form method="post" action="AddStudent">
+    <form method="post" action="AddStudent" >
          @Html.HiddenFor(m=>m.Id)
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4" >
             <div class="col">
                 <div class="form-outline">
-                    <input type="text" name="Name" value="@Model.FirstName" maxlength="15" class="form-control" placeholder="FirstName" required />
+                    <label>First Name</label>
+                    <input type="text" name="FirstName" value="@Model.FirstName" maxlength="15" class="form-control" placeholder="FirstName" required />
                 </div>
                 <div class="form-outline">
-                    <input type="text" name="Name" value="@Model.LastName" maxlength="15" class="form-control" placeholder="LastName" required />
+                      <label>Last Name</label>
+                    <input type="text" name="LastName" value="@Model.LastName" maxlength="15" class="form-control" placeholder="LastName" required />
                 </div>
                 <div class="form-outline">
-                    <input type="text" name="Name" value="@Model.BirthDay" maxlength="15" class="form-control" placeholder="BithDay" required />
+                     <label>BirthDay</label>
+                    <input type="date" name="BirthDay" value="@Model.BirthDay" maxlength="15" class="form-control" placeholder="BithDay" required />
                 </div>
                 <div class="form-outline">
-                    <input type="text" name="Name" value="@Model.Direction" maxlength="15" class="form-control" placeholder="Direction" required />
+                     <label>Direction</label>
+                    <input type="text" name="Direction" value="@Model.Direction" maxlength="15" class="form-control" placeholder="Direction" required />
                 </div>
                 <div class="form-outline">
-                    <input type="text" name="Name" value="@Model.Cource" maxlength="15" class="form-control" placeholder="Cource" required />
+                     <label>Cource</label>
+                    <input type="text" name="Cource" value="@Model.Cource" maxlength="15" class="form-control" placeholder="Cource" required />
                 </div>
                 <div class="form-outline">
-                    <input type="text" name="Name" value="@Model.SubjectId" maxlength="15" class="form-control" placeholder="Subject" required />
+                    <label>Subject Name</label>
+                    @Html.DropDownList("SubjectId", new SelectList(ViewBag.SubjectList, "Id", "Name"), htmlAttributes: new { @class = "form-control" })
                 </div>
             </div>
             <div class="row mb-4" style="padding:12px">

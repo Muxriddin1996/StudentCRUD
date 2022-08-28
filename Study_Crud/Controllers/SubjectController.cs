@@ -1,33 +1,65 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Study_Crud.Models.Entity;
+using Study_Crud.Models.Interface;
 
 namespace Study_Crud.Controllers
 {
     public class SubjectController : Controller
     {
         private readonly DataDbContext _db;
-        public SubjectController(DataDbContext db)
+        private readonly ISubjectService _subjectService;
+
+        public SubjectController(DataDbContext db,
+            ISubjectService subjectService
+            )
         {
             _db = db;
+            _subjectService = subjectService;
         }
 
         public IActionResult Index()
         {
-            var lists = _db.Subjects.ToList();
+            var lists = _subjectService.GetSubject();
             return View(lists);
         }
-        #region Subject
-
-
+        /// <summary>
+        /// Index for Subject
+        /// </summary>
+        /// <param name="SubjectSearch"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Index(string SubjectSearch)
+        {
+            ViewData["GetSubjectDetails"] = SubjectSearch;
+            var Subjectquery = from x in _subjectService.GetSubject() select x;
+            if (!String.IsNullOrEmpty(SubjectSearch))
+            {
+                Subjectquery = Subjectquery.Where(x => x.Name.Contains(SubjectSearch)||x.ClassName.Contains(SubjectSearch));
+            }
+            return View(Subjectquery.ToList());
+        }
+        /// <summary>
+        /// AddSubject
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult AddSubject(int Id = 0)
         {
             Subject model = new Subject();
+            var ClassList = _db.Classess.Select(x => new
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList();
+            ViewBag.ClassList = ClassList;
             if (Id != 0)
             {
                 var searchSubject = _db.Subjects.Find(Id);
                 model.Id = searchSubject.Id;
                 model.Name = searchSubject.Name;
+                model.ClassId = searchSubject.ClassId;
             }
             return View(model);
         }
@@ -72,9 +104,6 @@ namespace Study_Crud.Controllers
             }
         }
 
-
-
-
         /// <summary>
         /// 
         /// </summary>
@@ -95,7 +124,6 @@ namespace Study_Crud.Controllers
                 return View(ex);
             }
         }
-        #endregion
 
     }
 }

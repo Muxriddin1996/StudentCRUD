@@ -17,7 +17,7 @@
        
         public string SubjectName { get; set; } = String.Empty;
 
-        //public string TeacherName { get; set; } = String.Empty;
+        
 
     }
 }

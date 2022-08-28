@@ -15,6 +15,8 @@ builder.Services.AddDbContext<DataDbContext>(options =>
 
  builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<ISubjectService, SubjectService>();
+builder.Services.AddScoped<ITeacherService, TeacherService>();
 
 var app = builder.Build();
 

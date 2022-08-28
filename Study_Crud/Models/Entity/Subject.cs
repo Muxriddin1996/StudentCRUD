@@ -10,13 +10,13 @@ namespace Study_Crud.Models.Entity
         public int Id { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(50)")]
-        public string Name { get; set; }
+        public string Name { get; set; }=string.Empty;
         [Required]
         [Column("class_id")]
         [ForeignKey("ClassModel")]
         public int ClassId { get; set; }
         [IgnoreDataMember]
-        public virtual Classes ClassModel { get; set; }
+        public virtual Classes? ClassModel { get; set; }
 
 
     }

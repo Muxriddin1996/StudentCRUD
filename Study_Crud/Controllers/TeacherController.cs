@@ -1,35 +1,57 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Study_Crud.Models.Entity;
+using Study_Crud.Models.Interface;
 
 namespace Study_Crud.Controllers
 {
     public class TeacherController : Controller
     {
         private readonly DataDbContext _db;
-        public TeacherController(DataDbContext db)
+        private readonly ITeacherService _teacherService;
+        public TeacherController(DataDbContext db,ITeacherService teacherService)
         {
             _db = db;
+            _teacherService = teacherService;
         }
-
+         
         public IActionResult Index()
         {
-            var lists = _db.Teachers.ToList();
+            var lists = _teacherService.GetTeacher();
             return View(lists);
 
         }
 
-        #region Teacher 
-
+        [HttpPost]
+        public IActionResult Index(string TeacherSearch)
+        {
+            ViewData["GetTeacherDetails"] = TeacherSearch;
+            TeacherSearch = TeacherSearch.ToUpper();
+            var Teacherquery = from x in _teacherService.GetTeacher() select x;
+            if (!String.IsNullOrEmpty(TeacherSearch))
+            {
+                Teacherquery = Teacherquery.Where(x => x.FirstName.ToUpper().Contains(TeacherSearch) || x.LastName.ToUpper().Contains(TeacherSearch));
+            }
+            return View(Teacherquery.ToList());
+        }
 
         [HttpGet]
         public IActionResult AddTeacher(int Id = 0)
         {
             Teacher model = new Teacher();
+            ViewBag.SubjectList = _db.Subjects.Select(x => new
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList();
             if (Id != 0)
             {
                 var searchTeacher = _db.Teachers.Find(Id);
                 model.Id = searchTeacher.Id;
                 model.FirstName = searchTeacher.FirstName;
+                model.LastName = searchTeacher.LastName;
+                model.BirthDay= searchTeacher.BirthDay;
+                model.Position= searchTeacher.Position;
+                model.SubjectId = searchTeacher.SubjectId;
             }
             return View(model);
         }
@@ -103,8 +125,7 @@ namespace Study_Crud.Controllers
                 return View(ex);
             }
         }
-        #endregion
-
+       
 
     }
 }

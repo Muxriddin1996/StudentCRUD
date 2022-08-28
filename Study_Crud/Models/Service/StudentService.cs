@@ -18,6 +18,7 @@ namespace Study_Crud.Models.Service
             var studentList = _db.Students.ToList();
             foreach (var student in studentList)
             {
+
                 StudentViewModel model = new StudentViewModel();
                 model.Id = student.Id;
                 model.FirstName = student.FirstName;

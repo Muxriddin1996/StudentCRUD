@@ -20,31 +20,40 @@ namespace Study_Crud.Controllers
         {
             var lists = _studentService.GetStudent();
             return View(lists);
-           
         }
 
         [HttpPost]
-        public async Task<ActionResult> Index(string StudentSearch)
+        public  IActionResult Index(string StudentSearch)
         {
-            ViewData["GetClientDetails"] = StudentSearch;
-            var Studentquery = from x in _db.Students select x;
+            ViewData["GetStudentDetails"] = StudentSearch;
+            StudentSearch=StudentSearch.ToUpper();
+            var Studentquery = from x in _studentService.GetStudent() select x;
             if (!String.IsNullOrEmpty(StudentSearch))
             {
-                Studentquery = _db.Students.Where(x => x.FirstName.Contains(StudentSearch) || x.LastName.Contains(StudentSearch));
+                Studentquery = Studentquery.Where(x => x.FirstName.ToUpper().Contains(StudentSearch) || x.LastName.ToUpper().Contains(StudentSearch));
             }
-            return View(await Studentquery.AsNoTracking().ToListAsync());
+            return View(Studentquery.ToList());
         }
-
-
-        #region Student 
+       
         [HttpGet]
         public IActionResult AddStudent(int Id = 0)
         {
             Student model = new Student();
+            ViewBag.SubjectList = _db.Subjects.Select(x => new
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList();
             if (Id != 0)
             {
                 var searchstudent = _db.Students.Find(Id);
-                model.Id = searchstudent.Id;                
+                model.Id = searchstudent.Id; 
+                model.FirstName = searchstudent.FirstName;
+                model.LastName = searchstudent.LastName;
+                model.BirthDay= searchstudent.BirthDay;
+                model.Direction=searchstudent.Direction;
+                model.Cource=searchstudent.Cource;
+                model.SubjectId=searchstudent.SubjectId;
             }
             return View(model);
         }
@@ -114,7 +123,7 @@ namespace Study_Crud.Controllers
                 return View(ex);
             }
         }
-        #endregion
+     
 
 
     }

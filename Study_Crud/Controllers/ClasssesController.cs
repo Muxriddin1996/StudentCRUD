@@ -18,7 +18,7 @@ namespace Study_Crud.Controllers
             return View(lists);
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<ActionResult> Index(string ClassesSearch)
         {
             ViewData["GetClassesDetails"] = ClassesSearch;
@@ -28,7 +28,9 @@ namespace Study_Crud.Controllers
                 Classesquery = Classesquery.Where(x => x.Name.Contains(ClassesSearch));
             }
             return View(await Classesquery.AsNoTracking().ToListAsync());
-        } 
+        }
+
+       
 
         #region Classes 
 
@@ -42,6 +44,8 @@ namespace Study_Crud.Controllers
                 var searchClasses = _db.Classess.Find(Id);
                 model.Id = searchClasses.Id;
                 model.Name = searchClasses.Name;
+                model.Capasity = searchClasses.Capasity;
+                model.class_nomer = searchClasses.class_nomer;
             }
             return View(model);
         }

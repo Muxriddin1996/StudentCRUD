@@ -10,15 +10,15 @@ namespace Study_Crud.Models.Entity
         public int Id { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(50)")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; }=string.Empty;
         [Required]
         [Column(TypeName = "nvarchar(40)")]
-        public string LastName { get; set; }
+        public string LastName { get; set; }=string.Empty;
         [Required]
         public DateTime BirthDay { get; set; }
         [Column(TypeName = "nvarchar(60)")]
         [Required]
-        public string Direction { get; set; }
+        public string Direction { get; set; }= string.Empty;
         [Required]
         public int Cource { get; set; }
         [Required]
@@ -26,10 +26,7 @@ namespace Study_Crud.Models.Entity
         [ForeignKey("SubjectModel")]
         public int SubjectId { get; set; }
         [IgnoreDataMember]
-        public virtual Subject SubjectModel { get; set; }
-
-        public List<Teacher>? Teachers { get; set; }
-
+        public virtual Subject? SubjectModel { get; set; }
 
     }
 }

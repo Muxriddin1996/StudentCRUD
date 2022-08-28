@@ -4,20 +4,25 @@
 }
 <h1>Students</h1>
 
-<form method="get" asp-action="Index">
-    <p>
-         <input type="search" placeholder="Enter Student FirstName or LastName...." value="@ViewData["GetClientDetails"]" name="StudentSearch" style="width:500px;" />
-         <input type="submit" value="Search" class="btn btn-primary"       
-    </p>
-          <a asp-action="Index"> Get all Client</a>
-</form>
+<div class="row">
+ <form method="post" asp-action="Index">
+        <div class="row">
+            <input type="search" class="form-control col-md-4" placeholder="Enter Student FirstName or LastName...." value="@ViewData["GetStudentDetails"]" name="StudentSearch" style="width:500px;" />
+            <input type="submit" value="Search" class="btn btn-primary col-md-2" style="margin-left:20px;" />
 
+            <a asp-action="Index" class="col-md-2">
+                <button type="button" class="btn btn-primary ">
+                    Get all Student
+                </button>
+            </a>
+        </div>
+    </form>
 
-<a href="Student/AddStudent">
+    <a href="Student/AddStudent" style="margin-left: -10px;margin-top: 10px;">
         <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
             Create New Student
         </button>
-    </a>  
+    </a>
 
 <table class="table">
     <thead>
@@ -55,7 +60,7 @@
                   @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                  @Html.DisplayFor(modelItem => item.BirthDay)
+                 <p class="fw-normal mb-1">@item.BirthDay.ToString("dd/MM/yyyy")</p>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Direction)
@@ -67,7 +72,9 @@
                  @Html.DisplayFor(modelItem => item.SubjectName)
             </td>
             <td>
-                <a asp-action="AddStudent" asp-route-id="@item.Id">Edit</a> |             
+                <a asp-action="AddStudent" asp-route-id="@item.Id"><button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+           Edit
+        </button></a> |             
                   <a href="#">
                                 <button type="button"
                                 class="btn btn-danger"
@@ -83,4 +90,4 @@
 }
     </tbody>
 </table>
-
+</div>

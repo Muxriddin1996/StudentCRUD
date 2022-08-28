@@ -1,14 +1,28 @@
-﻿@model IEnumerable<Study_Crud.Models.Entity.Teacher>
+﻿@model IEnumerable<Study_Crud.Models.ViewModel.TeacherViewModel>
 @{
     ViewData["Title"] = "Index";
 }
 <h1>Teachers</h1>
 
-<a href="AddTeacher">
+<div class="row">
+ <form method="post" asp-action="Index">
+        <div class="row">
+            <input type="search" class="form-control col-md-4" placeholder="Enter Teacher FirstName or LastName...." value="@ViewData["GetTeacherDetails"]" name="TeacherSearch" style="width:500px;" />
+            <input type="submit" value="Search" class="btn btn-primary col-md-2" style="margin-left:20px;" />
+
+            <a asp-action="Index" class="col-md-2">
+                <button type="button" class="btn btn-primary ">
+                    Get all Teacher
+                </button>
+            </a>
+        </div>
+    </form>
+
+    <a href="Teacher/AddTeacher" style="margin-left: -10px;margin-top: 10px;">
         <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
             Create New Teacher
         </button>
-    </a>  
+    </a>
 
 <table class="table">
     <thead>
@@ -24,10 +38,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Position)
-            </th>
-           
+            </th>           
             <th>
-                @Html.DisplayNameFor(model => model.SubjectId)
+                @Html.DisplayNameFor(model => model.SubjectName)
             </th>
             
             <th></th>
@@ -41,26 +54,28 @@
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                  @Html.DisplayNameFor(model => item.LastName)
+                  @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                  @Html.DisplayNameFor(model => item.BirthDay)
+                <p class="fw-normal mb-1">@item.BirthDay.ToString("dd/MM/yyyy")</p>
             </td>
             <td>
-                @Html.DisplayNameFor(model => item.Position)
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>            
+            <td>
+                 @Html.DisplayFor(modelItem => item.SubjectName)
             </td>
             <td>
-                 @Html.DisplayNameFor(model => item.SubjectId)
-            </td>
-            <td>
-                <a asp-action="AddTeacher" asp-route-id="@item.Id">Edit</a> |             
+                <a asp-action="AddTeacher" asp-route-id="@item.Id"><button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+           Edit
+        </button></a> |             
                   <a href="#">
                                 <button type="button"
                                 class="btn btn-danger"
                                 data-mdb-ripple-color="dark">
                                     @Html.ActionLink("Delete","DeleteTeacher",
                             new { Id = item.Id},
-                            new { onclick = "return confirm('Are sure wants to Detele?');" })
+                            new { onclick = "return confirm('Are sure wants to Delete?');" })
                                 </button>
 
                             </a>
@@ -69,4 +84,4 @@
 }
     </tbody>
 </table>
-
+</div>

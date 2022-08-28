@@ -25,9 +25,5 @@ namespace Study_Crud.Models.Entity
         [IgnoreDataMember]
         public virtual Subject SubjectModel { get; set; }
 
-        public Student? Student { get; set; } 
-      
-
-
     }
 }

@@ -1,52 +1,72 @@
-﻿@model IEnumerable<Study_Crud.Models.Entity.Subject>
+﻿@model IEnumerable<Study_Crud.Models.ViewModel.SubjectViewModel>
 @{
     ViewData["Title"] = "Index";
 }
 <h1>Subject</h1>
+<div class="row">
+    <form method="post" asp-action="Index">
+        <div class="row">
+            <input type="search" class="form-control col-md-4" placeholder="Enter Subject Name...." value="@ViewData["GetSubjectDetails"]" name="SubjectSearch" style="width:500px;" />
+            <input type="submit" value="Search" class="btn btn-primary col-md-2" style="margin-left:20px;" />
 
-<a href="AddSubject">
+            <a asp-action="Index" class="col-md-2">
+                <button type="button" class="btn btn-primary ">
+                    Get all Subject
+                </button>
+            </a>
+        </div>
+    </form>
+
+
+    <a href="Subject/AddSubject" style="margin-left: -10px;margin-top: 10px;">
         <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
             Create New Subject
         </button>
-    </a>  
+    </a>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClassId)
-            </th>       
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-      @foreach (var item in Model)
-      {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                  @Html.DisplayNameFor(model => item.ClassId)
-            </td>                     
-            <td>
-                <a asp-action="AddSubject" asp-route-id="@item.Id">Edit</a> |             
-                  <a href="#">
-                                <button type="button"
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.ClassName)
+                    </td>
+                    <td>
+                        <a asp-action="AddSubject" asp-route-id="@item.Id">
+                            <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                                Edit
+                            </button>
+                        </a> |
+                        <a href="#">
+                            <button type="button"
                                 class="btn btn-danger"
                                 data-mdb-ripple-color="dark">
-                                    @Html.ActionLink("Delete","DeleteSubject",
+                                @Html.ActionLink("Delete","DeleteSubject",
                             new { Id = item.Id},
                             new { onclick = "return confirm('Are sure wants to Detele?');" })
-                                </button>
+                            </button>
 
-                            </a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
+</div>
